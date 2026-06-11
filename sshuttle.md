@@ -1,6 +1,7 @@
 La herramienta sshuttle sirve para crear una especie de VPN a través de SSH. Permite acceder a redes remotas sin configurar una VPN tradicional.
 
 sudo sshuttle -r usuario@ip red/24 -v
+
 Desglose del comando:
 
 sudo: ejecuta el comando con privilegios de administrador.
