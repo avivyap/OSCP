@@ -1,0 +1,3 @@
+ARP (Address Resolution Protocol) is used to map IP addresses to MAC addresses within a local network.
+
+arp | grep -v "incomplete"
