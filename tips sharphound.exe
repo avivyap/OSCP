@@ -31,4 +31,4 @@ System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException: An o
 
 ## Solution
 
-./SharpHound.exe --ldapusername usuario --ldappassword password
+./SharpHound.exe --ldapusername user --ldappassword password
