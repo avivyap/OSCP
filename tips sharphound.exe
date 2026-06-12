@@ -1,0 +1,34 @@
+## Problem
+*Evil-WinRM* PS C:\Windows\Temp\up> ./sh.exe
+2026-06-12T12:10:52.2249821+01:00|INFORMATION|This version of SharpHound is compatible with the 4.3.1 Release of BloodHound
+2026-06-12T12:10:52.5531293+01:00|INFORMATION|Resolved Collection Methods: Group, LocalAdmin, Session, Trusts, ACL, Container, RDP, ObjectProps, DCOM, SPNTargets, PSRemote
+2026-06-12T12:10:52.7562429+01:00|INFORMATION|Initializing SharpHound at 12:10 on 12/06/2026
+2026-06-12T12:10:52.8187292+01:00|WARNING|[CommonLib LDAPUtils]Exception getting LDAP connection for filter (objectclass=domain) and domain painters.htb
+System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException: An operations error occurred.
+ ---> System.DirectoryServices.DirectoryServicesCOMException: An operations error occurred.
+
+   at System.DirectoryServices.DirectoryEntry.Bind(Boolean throwIfFail)
+   at System.DirectoryServices.DirectoryEntry.Bind()
+   at System.DirectoryServices.DirectoryEntry.get_AdsObject()
+   at System.DirectoryServices.PropertyValueCollection.PopulateList()
+   at System.DirectoryServices.PropertyValueCollection..ctor(DirectoryEntry entry, String propertyName)
+   at System.DirectoryServices.PropertyCollection.get_Item(String propertyName)
+   at System.DirectoryServices.ActiveDirectory.PropertyManager.GetPropertyValue(DirectoryContext context, DirectoryEntry directoryEntry, String propertyName)
+   --- End of inner exception stack trace ---
+   at System.DirectoryServices.ActiveDirectory.PropertyManager.GetPropertyValue(DirectoryContext context, DirectoryEntry directoryEntry, String propertyName)
+   at System.DirectoryServices.ActiveDirectory.Domain.GetRoleOwner(ActiveDirectoryRole role)
+   at System.DirectoryServices.ActiveDirectory.Domain.get_PdcRoleOwner()
+   at SharpHoundCommonLib.LDAPUtils.<GetUsableDomainController>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at SharpHoundCommonLib.LDAPUtils.<CreateLDAPConnection>d__46.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at SharpHoundCommonLib.LDAPUtils.<QueryLDAP>d__34.MoveNext()
+2026-06-12T12:10:52.8187292+01:00|ERROR|Unable to connect to LDAP, verify your credentials
+
+## Solution
+
+./SharpHound.exe --ldapusername usuario --ldappassword password
