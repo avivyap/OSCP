@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for ip in seq {1..255};do
+for ip in {1..255};do
 
   timeout 1 bash -c "ping -c 1 172.16.1.$ip" &>/dev/null && echo "[+] IP activa 172.16.1.$ip" &
 
